@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Human Geography · Unit 3 Vocab: Cultural Patterns &amp; Processes</title>
+<meta name="description" content="Interactive study site for AP Human Geography Unit 3 vocabulary: definitions, examples, flashcards, and quiz.">
+<meta name="theme-color" content="#0a0a0a">
+<!-- Optional web fonts: the page falls back to system fonts when offline -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f6f4; --surface:#ffffff; --surface2:#f1f1ef;
+  --text:#0a0a0a; --muted:#4a4a4a; --soft:#6b6b6b;
+  --line:#e2e2df; --border:#0a0a0a; --border-soft:#cfcfcb;
+  --hard:#0a0a0a; --dots:rgba(0,0,0,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.05), 0 8px 24px -14px rgba(0,0,0,.18);
+  --switch-off:#d6d6d2;
+  --radius:16px;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+body.dark{
+  --bg:#0a0a0a; --surface:#141414; --surface2:#1c1c1c;
+  --text:#f5f5f5; --muted:#b4b4b4; --soft:#8f8f8f;
+  --line:#262626; --border:#525252; --border-soft:#333333;
+  --hard:#6b6b6b; --dots:rgba(255,255,255,.06);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -14px rgba(0,0,0,.9);
+  --switch-off:#3a3a3a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+::selection{background:var(--text); color:var(--bg)}
+body{
+  margin:0; font-family:var(--font); color:var(--text); min-height:100vh; line-height:1.5;
+  background-color:var(--bg);
+  background-image:radial-gradient(var(--dots) 1px,transparent 1.2px);
+  background-size:22px 22px; background-attachment:fixed;
+  transition:background-color .4s ease,color .3s ease;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1280px; margin:0 auto; padding:28px 20px 60px}
+.glass{background:color-mix(in srgb,var(--surface) 88%,transparent); border:1px solid var(--border); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:var(--shadow); border-radius:var(--radius); transition:background-color .4s ease,border-color .4s ease}
+
+/* hero */
+.hero{display:grid; grid-template-columns:1fr auto; gap:22px; align-items:center; padding:26px 28px; margin-bottom:18px}
+.eyebrow{display:inline-flex; gap:8px; align-items:center; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bg); background:var(--text); padding:6px 12px; border-radius:999px}
+.eyebrow .gs{filter:grayscale(1)}
+h1{margin:12px 0 6px; font-size:clamp(1.6rem,3.6vw,2.7rem); line-height:1.08; font-weight:800; letter-spacing:-.035em}
+h1 .outline{color:transparent; -webkit-text-stroke:1.5px var(--text); letter-spacing:-.02em}
+.sub{margin:0; color:var(--muted); font-size:1rem}
+.progress-box{min-width:270px; padding:16px 18px; border-radius:14px; background:var(--surface); border:1px solid var(--border-soft)}
+.progress-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-weight:700}
+.progress-top .big{font-size:1.7rem; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+.progress-top small{color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums}
+.bar{height:12px; border-radius:999px; border:1px solid var(--border); background:var(--surface2); overflow:hidden; margin:10px 0 6px; padding:1px}
+.bar > span{display:block; height:100%; width:0; border-radius:999px; background:repeating-linear-gradient(-45deg,var(--text) 0 6px,color-mix(in srgb,var(--text) 72%,var(--bg)) 6px 12px); background-size:34px 34px; animation:stripes 1.2s linear infinite; transition:width .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes stripes{to{background-position:34px 0}}
+.progress-msg{font-size:.82rem; color:var(--muted); min-height:1.2em}
+
+/* controls */
+.controls{padding:18px 20px; margin-bottom:22px; position:sticky; top:10px; z-index:20}
+.row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.row + .row{margin-top:14px}
+.search{flex:1 1 260px; position:relative}
+.search input{width:100%; font:inherit; color:var(--text); padding:12px 40px 12px 42px; border-radius:12px; border:1px solid var(--border-soft); background:var(--surface); outline:none; transition:border-color .2s, box-shadow .2s}
+.search input::placeholder{color:var(--soft)}
+.search input:focus{border-color:var(--text); box-shadow:0 0 0 3px color-mix(in srgb,var(--text) 14%,transparent)}
+.search .icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); opacity:.7; pointer-events:none; filter:grayscale(1)}
+.search .clear{position:absolute; right:8px; top:50%; transform:translateY(-50%); border:0; background:transparent; color:var(--muted); font-size:1rem; cursor:pointer; padding:4px 8px; border-radius:8px; display:none}
+.search .clear:hover{background:var(--surface2); color:var(--text)}
+.search.has-text .clear{display:block}
+.btn{font:inherit; font-weight:700; font-size:.9rem; cursor:pointer; padding:11px 16px; border-radius:12px; color:var(--bg); background:var(--text); border:1px solid var(--text); transition:transform .15s ease, box-shadow .15s ease, background-color .2s, color .2s; display:inline-flex; align-items:center; gap:8px; white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px); box-shadow:3px 3px 0 var(--hard)}
+body:not(.dark) .btn:not(.ghost):hover{box-shadow:3px 3px 0 #9a9a9a}
+.btn:active{transform:none; box-shadow:none}
+.btn:disabled{opacity:.35; cursor:not-allowed; transform:none; box-shadow:none}
+.btn.ghost{background:var(--surface); color:var(--text); border:1px solid var(--border)}
+.btn[hidden]{display:none}
+.btn:focus-visible,.chip:focus-visible,.switch input:focus-visible + .track,.card:focus-visible,.choice:focus-visible,.x:focus-visible{outline:2px solid var(--text); outline-offset:3px}
+
+/* toggle switches */
+.toggles{display:flex; flex-wrap:wrap; gap:8px 18px}
+.switch{display:inline-flex; align-items:center; gap:9px; cursor:pointer; user-select:none; font-weight:600; font-size:.9rem; padding:4px 2px}
+.switch input{position:absolute; opacity:0; width:1px; height:1px}
+.track{position:relative; width:44px; height:24px; border-radius:999px; background:var(--switch-off); border:1px solid var(--border-soft); transition:background-color .3s ease,border-color .3s; flex:none}
+.track::after{content:""; position:absolute; top:2px; left:2px; width:18px; height:18px; border-radius:50%; background:var(--surface); box-shadow:0 1px 3px rgba(0,0,0,.3); transition:transform .35s cubic-bezier(.5,1.6,.4,.8), background-color .3s}
+.switch:hover .track{border-color:var(--text)}
+.switch input:checked + .track{background:var(--text); border-color:var(--text)}
+.switch input:checked + .track::after{transform:translateX(20px); background:var(--bg)}
+.switch .ico{font-size:.95rem; filter:grayscale(1)}
+
+/* chips */
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{font:inherit; font-size:.84rem; font-weight:600; cursor:pointer; border:1px solid var(--border-soft); background:var(--surface); color:var(--text); padding:7px 13px; border-radius:999px; transition:transform .15s ease, background-color .2s, color .2s, border-color .2s; display:inline-flex; gap:6px; align-items:center}
+.chip .ci{filter:grayscale(1)}
+.chip:hover{transform:translateY(-1px); border-color:var(--text)}
+.chip .n{font-size:.72rem; color:var(--muted); background:var(--surface2); padding:1px 7px; border-radius:999px; font-variant-numeric:tabular-nums}
+.chip.active{background:var(--text); color:var(--bg); border-color:var(--text)}
+.chip.active .n{background:color-mix(in srgb,var(--bg) 22%,transparent); color:var(--bg)}
+.status{margin-left:auto; color:var(--muted); font-size:.85rem; font-weight:600}
+
+/* grid & cards */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; align-items:stretch}
+.card{perspective:1400px; border-radius:var(--radius); transition:transform .2s ease; outline:none}
+.card.enter{animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+.card:hover{transform:translate(-3px,-3px)}
+.card[hidden]{display:none}
+.card-inner{height:100%; display:grid; transform-style:preserve-3d; transition:transform .7s cubic-bezier(.3,1.25,.4,1); border-radius:var(--radius)}
+.face{grid-area:1/1; -webkit-backface-visibility:hidden; backface-visibility:hidden; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 18px 14px; position:relative; overflow:hidden; transition:box-shadow .2s ease, background-color .4s ease, border-color .3s}
+.card:hover .face{box-shadow:5px 5px 0 var(--hard)}
+body.dark .face{border-color:var(--border-soft)}
+body.dark .card:hover .face{border-color:var(--border)}
+.card.is-mastered .face{border-width:2px; border-color:var(--text); padding:17px 17px 13px}
+.card.is-mastered .face::after{content:"✓"; position:absolute; right:14px; top:12px; width:26px; height:26px; border-radius:50%; background:var(--text); color:var(--bg); font-weight:800; display:grid; place-items:center; font-size:.85rem; animation:stamp .35s cubic-bezier(.5,1.8,.5,1)}
+@keyframes stamp{from{transform:scale(0) rotate(-30deg)}to{transform:none}}
+body:not(.fc) .front{display:none}
+body.fc .back{transform:rotateY(180deg)}
+body.fc .card{cursor:pointer}
+body.fc .card.flipped .card-inner{transform:rotateY(180deg)}
+
+.meta{display:flex; align-items:center; gap:8px; margin-bottom:6px; padding-right:34px}
+.num{font-weight:800; font-size:.76rem; color:var(--soft); font-variant-numeric:tabular-nums; letter-spacing:.04em}
+.badge{font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border-soft); padding:2px 8px; border-radius:999px; white-space:nowrap}
+.term{margin:2px 0 8px; font-size:1.3rem; font-weight:800; letter-spacing:-.025em; line-height:1.2}
+.back{display:flex; flex-direction:column}
+.def{margin:0 0 12px; font-size:1rem; line-height:1.55}
+.ex{margin:0 0 10px; font-size:.9rem; color:var(--muted); padding:9px 12px; border-left:3px solid var(--text); background:var(--surface2); border-radius:0 10px 10px 0}
+.ex b{color:var(--text)}
+body.no-ex .ex{display:none}
+body.short-mode .v-full, body:not(.short-mode) .v-short{display:none}
+body.short-mode .def{font-size:1.05rem; font-weight:600}
+body.short-mode .front{min-height:190px}
+.mastery{display:flex; justify-content:flex-end; margin-top:auto; padding-top:6px}
+.mcheck{display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:.8rem; font-weight:700; color:var(--muted); padding:6px 10px; border-radius:10px; transition:background-color .2s, color .2s; user-select:none; letter-spacing:.01em}
+.mcheck:hover{background:var(--surface2); color:var(--text)}
+.mcheck input{appearance:none; -webkit-appearance:none; width:19px; height:19px; border-radius:5px; border:1.5px solid var(--soft); margin:0; display:grid; place-items:center; cursor:pointer; transition:all .2s ease; background:transparent}
+.mcheck input::after{content:"✓"; color:var(--bg); font-size:.78rem; font-weight:900; transform:scale(0); transition:transform .2s cubic-bezier(.5,1.8,.5,1)}
+.mcheck input:checked{background:var(--text); border-color:var(--text)}
+.mcheck input:checked::after{transform:scale(1)}
+.mcheck input:focus-visible{outline:2px solid var(--text); outline-offset:2px}
+.card.is-mastered .mcheck{color:var(--text)}
+
+/* flashcard front */
+.front{display:flex; flex-direction:column; justify-content:space-between; min-height:250px; background-color:var(--surface); background-image:repeating-linear-gradient(-45deg,transparent 0 10px,color-mix(in srgb,var(--text) 3.5%,transparent) 10px 11px)}
+.front-body{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px; padding:14px 6px}
+.front .term{font-size:1.7rem; margin:0}
+.front .big-emoji{font-size:2.2rem; filter:grayscale(1) contrast(1.1); width:72px; height:72px; display:grid; place-items:center; border:1px solid var(--border-soft); border-radius:50%; background:var(--surface)}
+.hint{font-size:.78rem; color:var(--soft); font-weight:600; display:inline-flex; gap:6px; align-items:center; letter-spacing:.02em}
+.hint .spin{display:inline-block; animation:wiggle 2.4s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(0)}50%{transform:rotate(180deg)}}
+.front .mastery{justify-content:center}
+
+.empty{text-align:center; padding:50px 20px; color:var(--muted); font-weight:600}
+.empty .e{font-size:3rem; filter:grayscale(1)}
+footer{text-align:center; color:var(--soft); font-size:.82rem; margin-top:36px}
+
+/* quiz modal */
+.modal{position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:16px; background:rgba(0,0,0,.55); backdrop-filter:blur(6px) grayscale(1); -webkit-backdrop-filter:blur(6px) grayscale(1); animation:fade .25s ease}
+body.dark .modal{background:rgba(0,0,0,.72)}
+.modal[hidden]{display:none}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal-card{width:min(640px,100%); max-height:calc(100vh - 32px); overflow:auto; padding:22px; background:var(--surface); border:1px solid var(--border); box-shadow:0 30px 60px -20px rgba(0,0,0,.5); animation:rise .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes rise{from{transform:translateY(24px) scale(.97); opacity:0}to{transform:none; opacity:1}}
+.q-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px}
+.q-head h2{margin:0; font-size:1.3rem; margin-right:auto; letter-spacing:-.02em}
+.pill{font-size:.78rem; font-weight:700; padding:5px 10px; border-radius:999px; border:1px solid var(--border-soft); color:var(--text); font-variant-numeric:tabular-nums}
+.pill#qScore{background:var(--text); color:var(--bg); border-color:var(--text)}
+.x{border:1px solid var(--border-soft); background:var(--surface); color:var(--text); width:34px; height:34px; border-radius:10px; font-size:1rem; cursor:pointer; transition:background-color .2s,color .2s}
+.x:hover{background:var(--text); color:var(--bg)}
+.q-label{margin:4px 0 6px; color:var(--muted); font-size:.82rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase}
+.q-def{margin:0 0 14px; padding:14px 16px; border-radius:12px; font-size:1.05rem; font-weight:600; background:var(--surface2); border-left:4px solid var(--text)}
+.choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.choice{font:inherit; font-weight:700; text-align:left; padding:13px 14px; border-radius:12px; border:1.5px solid var(--border-soft); background:var(--surface); color:var(--text); cursor:pointer; transition:transform .15s, border-color .2s, background-color .2s, color .2s, box-shadow .15s; display:flex; gap:10px; align-items:center}
+.choice .k{flex:none; width:24px; height:24px; border-radius:7px; display:grid; place-items:center; font-size:.75rem; border:1px solid var(--border-soft); color:var(--muted)}
+.choice:hover:not(:disabled){transform:translate(-2px,-2px); border-color:var(--text); box-shadow:3px 3px 0 var(--hard)}
+.choice:disabled{cursor:default}
+.choice:disabled:not(.right):not(.wrong){opacity:.45}
+.choice.right{background:var(--text); color:var(--bg); border-color:var(--text)}
+.choice.right .k{background:var(--bg); color:var(--text); border-color:var(--bg); font-size:.9rem; font-weight:900}
+.choice.wrong{border-style:dashed; border-color:var(--text); animation:shake .4s}
+.choice.wrong .tt{text-decoration:line-through; text-decoration-thickness:1.5px}
+.choice.wrong .k{background:transparent; color:var(--text); border-color:var(--text); font-size:.9rem; font-weight:900}
+@keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.feedback{min-height:1.5em; margin:14px 0 4px; font-weight:600; font-size:.92rem}
+.feedback .ok,.feedback .no{color:var(--text)}
+.feedback .ic{display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; font-weight:900; font-size:.8rem; margin-right:8px; vertical-align:middle}
+.feedback .ok .ic{background:var(--text); color:var(--bg)}
+.feedback .no .ic{border:1.5px solid var(--text)}
+.feedback .fx{display:block; color:var(--muted); font-weight:500; margin-top:6px}
+.q-foot{display:flex; gap:10px; justify-content:space-between; align-items:center; margin-top:12px; flex-wrap:wrap}
+.q-scope{font-size:.8rem; color:var(--muted)}
+.toast{position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(80px); background:var(--text); color:var(--bg); padding:10px 18px; border-radius:999px; font-weight:600; font-size:.88rem; z-index:200; transition:transform .35s cubic-bezier(.2,.9,.3,1.2); box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media (max-height:720px){ .controls{position:static} }
+@media (max-width:760px){
+  .wrap{padding:14px 12px 40px}
+  .hero{grid-template-columns:1fr; padding:20px}
+  .progress-box{min-width:0}
+  .controls{position:static; padding:14px}
+  .status{margin-left:0; width:100%}
+  .grid{grid-template-columns:1fr; gap:14px}
+  .choices{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero glass">
+    <div>
+      <span class="eyebrow"><span class="gs">🌎</span> AP Human Geography · Unit 3</span>
+      <h1>Cultural Patterns &amp; Processes<br><span class="outline">Vocab Lab</span></h1>
+      <p class="sub">48 key terms with quick definitions and real-world examples.</p>
+    </div>
+    <div class="progress-box" aria-live="polite">
+      <div class="progress-top"><span class="big" id="progCount">0 / 48</span><small id="progPct">0% mastered</small></div>
+      <div class="bar" role="progressbar" aria-label="Mastered terms" aria-valuemin="0" aria-valuemax="48" aria-valuenow="0" id="progBar"><span id="progFill"></span></div>
+      <div class="progress-msg" id="progMsg">Check “Mastered” on a card when you know it cold.</div>
+    </div>
+  </header>
+
+  <section class="controls glass" aria-label="Study controls">
+    <div class="row">
+      <div class="search" id="searchBox">
+        <span class="icon" aria-hidden="true">🔍</span>
+        <input id="search" type="search" placeholder="Search terms, definitions, examples…" aria-label="Search terms" autocomplete="off">
+        <button class="clear" id="clearSearch" type="button" aria-label="Clear search">✕</button>
+      </div>
+      <button class="btn" id="quizBtn" type="button">⚡ Quick Quiz</button>
+      <button class="btn ghost" id="reshuffleBtn" type="button" hidden>🔀 Reshuffle</button>
+      <button class="btn ghost" id="resetBtn" type="button" title="Clear all mastered checkmarks">↺ Reset progress</button>
+    </div>
+    <div class="row toggles" role="group" aria-label="Display toggles">
+      <label class="switch"><input type="checkbox" id="tg-dark" data-setting="dark"><span class="track"></span><span class="ico">🌙</span>Dark mode</label>
+      <label class="switch"><input type="checkbox" id="tg-short" data-setting="short"><span class="track"></span><span class="ico">✂️</span>Short</label>
+      <label class="switch"><input type="checkbox" id="tg-examples" data-setting="examples"><span class="track"></span><span class="ico">🌍</span>Examples</label>
+      <label class="switch"><input type="checkbox" id="tg-flash" data-setting="flash"><span class="track"></span><span class="ico">🃏</span>Flashcard mode</label>
+      <label class="switch"><input type="checkbox" id="tg-shuffle" data-setting="shuffle"><span class="track"></span><span class="ico">🔀</span>Shuffle</label>
+      <label class="switch"><input type="checkbox" id="tg-hide" data-setting="hideMastered"><span class="track"></span><span class="ico">🙈</span>Hide mastered</label>
+    </div>
+    <div class="row">
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+      <span class="status" id="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <main class="grid" id="grid" aria-label="Vocabulary cards"></main>
+  <div class="empty" id="empty" hidden><div class="e">🧭</div>No terms match. Try a different search or category.</div>
+
+  <footer>Made for AP Human Geography Unit 3 review · Progress is saved in this browser · Tip: in Flashcard mode, press Enter/Space on a focused card to flip it.</footer>
+</div>
+
+<div class="modal" id="quiz" hidden>
+  <div class="modal-card glass" role="dialog" aria-modal="true" aria-labelledby="qTitle">
+    <div class="q-head">
+      <h2 id="qTitle">⚡ Quick Quiz</h2>
+      <span class="pill" id="qScore">Score 0/0</span>
+      <span class="pill" id="qStreak">🔥 0</span>
+      <span class="pill" id="qBest">🏆 Best 0</span>
+      <button class="x" id="qClose" type="button" aria-label="Close quiz">✕</button>
+    </div>
+    <p class="q-label">Which term matches this definition?</p>
+    <p class="q-def" id="qDef"></p>
+    <div class="choices" id="qChoices"></div>
+    <div class="feedback" id="qFeedback" aria-live="polite"></div>
+    <div class="q-foot">
+      <span class="q-scope" id="qScope"></span>
+      <div style="display:flex; gap:8px">
+        <button class="btn ghost" id="qReset" type="button">Reset score</button>
+        <button class="btn" id="qNext" type="button" disabled>Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+
+var CATS = {
+  "Diffusion":               {icon:"🌊"},
+  "Religion":                {icon:"🕊️"},
+  "Language":                {icon:"🗣️"},
+  "Identity":                {icon:"🧑‍🤝‍🧑"},
+  "Landscape":               {icon:"🏙️"},
+  "Globalization & Politics":{icon:"🌐"}
+};
+
+var TERMS = [
+{term:"Acculturation", cat:"Identity",
+ def:"The process in which a group adopts some traits of another culture while still keeping its own distinct cultural identity.",
+ ex:"Many Mexican American families celebrate Thanksgiving with turkey while still serving tamales and keeping Spanish at home.",
+ shortDef:"Adopting another culture’s traits but keeping your own.", shortEx:"Mexican Americans celebrating Thanksgiving."},
+{term:"Assimilation", cat:"Identity",
+ def:"The process in which a minority group gives up its distinctive cultural traits and is fully absorbed into the dominant culture.",
+ ex:"Many great-grandchildren of early-1900s Italian and German immigrants to the U.S. speak only English and keep few ancestral customs.",
+ shortDef:"Fully absorbed into the dominant culture, losing your own.", shortEx:"Immigrants’ great-grandkids speaking only English."},
+{term:"Buddhism", cat:"Religion",
+ def:"A universalizing religion founded by Siddhartha Gautama (the Buddha) in northeastern India around 500 BCE, teaching the Four Noble Truths and Eightfold Path toward enlightenment.",
+ ex:"Buddhism diffused from India along the Silk Road and sea routes to China, Korea, and Japan; today it is the majority religion in Thailand.",
+ shortDef:"Universalizing religion from India seeking enlightenment.", shortEx:"Spread via the Silk Road to East Asia."},
+{term:"Centrifugal forces", cat:"Globalization & Politics",
+ def:"Forces that divide a state and pull its people apart, such as ethnic conflict, religious differences, or separatist movements.",
+ ex:"Independence movements in Catalonia (Spain) and Quebec (Canada) are centrifugal forces that challenge national unity.",
+ shortDef:"Forces that divide a state.", shortEx:"Catalonia’s independence movement."},
+{term:"Centripetal forces", cat:"Globalization & Politics",
+ def:"Forces that unite and bind the people of a state together, such as a shared language, national symbols, or a common enemy.",
+ ex:"The U.S. flag, the national anthem, and holidays like the Fourth of July help unify Americans of many backgrounds.",
+ shortDef:"Forces that unite a state.", shortEx:"U.S. flag and the Fourth of July."},
+{term:"Christianity", cat:"Religion",
+ def:"A universalizing, monotheistic religion based on the life and teachings of Jesus, with its hearth in the Levant; it has the most followers worldwide.",
+ ex:"Christianity spread through the Roman Empire and later through European colonialism, becoming dominant in the Americas and much of sub-Saharan Africa.",
+ shortDef:"Universalizing religion based on Jesus; world’s largest.", shortEx:"Spread via Rome and colonialism."},
+{term:"Colonialism", cat:"Globalization & Politics",
+ def:"The practice of a state establishing settlements and political control over another territory and its people, often to exploit its resources.",
+ ex:"Britain colonized India for nearly two centuries, which is one reason English is still widely used in Indian government and business.",
+ shortDef:"Settling and controlling another territory.", shortEx:"British rule over India."},
+{term:"Contagious diffusion", cat:"Diffusion",
+ def:"A type of expansion diffusion in which a trait spreads rapidly from person to person, like a contagious disease, regardless of status.",
+ ex:"A new dance trend spreads from friend to friend across social media and reaches millions of people worldwide within days.",
+ shortDef:"Rapid person-to-person spread, like a virus.", shortEx:"A dance trend going viral."},
+{term:"Creole language", cat:"Language",
+ def:"A language that began as a pidgin and became the native (first) language of a group, developing a fuller vocabulary and grammar.",
+ ex:"Haitian Creole, based largely on French with West African influences, is the first language of most people in Haiti.",
+ shortDef:"A pidgin that became a native language.", shortEx:"Haitian Creole."},
+{term:"Creolization", cat:"Identity",
+ def:"The blending of two or more cultures to create a new, distinct culture, seen in language, music, food, and traditions.",
+ ex:"Louisiana Creole cuisine like gumbo blends French, Spanish, West African, and Indigenous food traditions.",
+ shortDef:"Blending cultures into a new one.", shortEx:"Louisiana gumbo."},
+{term:"Cultural convergence", cat:"Globalization & Politics",
+ def:"The process by which cultures become more alike as a result of increased contact, communication, trade, and globalization.",
+ ex:"Teens in Tokyo, Lagos, and São Paulo often wear the same sneaker brands, stream the same songs, and use the same apps.",
+ shortDef:"Cultures becoming more alike through contact.", shortEx:"Teens worldwide wearing the same sneakers."},
+{term:"Cultural divergence", cat:"Globalization & Politics",
+ def:"The process by which cultures become less alike over time, often due to isolation, barriers, conflict, or efforts to preserve differences.",
+ ex:"The Amish in Pennsylvania intentionally limit modern technology, keeping their culture distinct from mainstream American culture.",
+ shortDef:"Cultures becoming less alike over time.", shortEx:"Amish limiting modern technology."},
+{term:"Cultural landscape", cat:"Landscape",
+ def:"The visible imprint of human activity and culture on the natural landscape, such as buildings, farms, roads, and signs.",
+ ex:"Bali’s terraced rice paddies and Manhattan’s skyscrapers both show how people reshape the land to fit their culture.",
+ shortDef:"Visible human imprint on the land.", shortEx:"Bali’s rice terraces; Manhattan skyscrapers."},
+{term:"Cultural relativism", cat:"Identity",
+ def:"The idea that a culture should be understood and evaluated on its own terms, not judged by the standards of another culture.",
+ ex:"Instead of calling insects “gross,” a student learns why crickets are a nutritious traditional food in parts of Mexico and Thailand.",
+ shortDef:"Judging a culture by its own standards.", shortEx:"Understanding why some cultures eat insects."},
+{term:"Culture", cat:"Identity",
+ def:"The shared beliefs, values, practices, behaviors, and material traits of a group of people, passed down from generation to generation.",
+ ex:"Japanese culture includes bowing as a greeting, removing shoes indoors, and celebrating cherry blossom season (hanami).",
+ shortDef:"A group’s shared beliefs, practices, and traits.", shortEx:"Bowing and removing shoes in Japan."},
+{term:"Daoism (Taoism)", cat:"Religion",
+ def:"A Chinese ethnic religion and philosophy associated with Laozi that emphasizes living simply and in harmony with nature and the Dao (“the Way”).",
+ ex:"Daoist ideas of balance (yin and yang) shape traditional Chinese practices such as tai chi and feng shui.",
+ shortDef:"Chinese ethnic religion: live in harmony with the Way.", shortEx:"Yin-yang, tai chi, feng shui."},
+{term:"Dialects", cat:"Language",
+ def:"Regional variations of a single language, distinguished by differences in vocabulary, spelling, grammar, and pronunciation (accent).",
+ ex:"Americans say “soda,” “pop,” or “coke” depending on region, and Southerners often say “y’all.”",
+ shortDef:"Regional versions of one language.", shortEx:"“Soda” vs. “pop” vs. “coke.”"},
+{term:"Diffusion", cat:"Diffusion",
+ def:"The process by which a cultural trait, idea, or innovation spreads from its hearth to other places over time.",
+ ex:"Sushi diffused from Japan to the rest of the world and is now sold in grocery stores across the United States.",
+ shortDef:"Spread of a trait from its hearth.", shortEx:"Sushi spreading from Japan worldwide."},
+{term:"Ethnic cultures", cat:"Identity",
+ def:"The distinct customs, traditions, and practices of an ethnic group, rooted in shared ancestry, history, and often a homeland.",
+ ex:"Hmong communities in Minnesota preserve the Hmong language, story cloths, and Hmong New Year celebrations.",
+ shortDef:"Traditions of a group sharing ancestry and heritage.", shortEx:"Hmong New Year in Minnesota."},
+{term:"Ethnic neighborhoods", cat:"Landscape",
+ def:"Areas within a city where members of a particular ethnic group cluster, often keeping their language, businesses, and traditions.",
+ ex:"San Francisco’s Chinatown and Miami’s Little Havana are well-known ethnic neighborhoods.",
+ shortDef:"City areas where one ethnic group clusters.", shortEx:"Chinatown; Little Havana."},
+{term:"Ethnic religions", cat:"Religion",
+ def:"Religions closely tied to a particular ethnic group and homeland that rarely seek converts and spread mainly through relocation diffusion.",
+ ex:"Hinduism, Judaism, and Shintoism are ethnic religions concentrated mostly among specific peoples and places.",
+ shortDef:"Religions tied to one people and place; rarely seek converts.", shortEx:"Hinduism, Judaism, Shintoism."},
+{term:"Ethnicity", cat:"Identity",
+ def:"Identity with a group of people who share a common ancestry, cultural traditions, and often a homeland.",
+ ex:"Kurds share an ethnicity, language, and traditions across Turkey, Iraq, Iran, and Syria, even without their own independent state.",
+ shortDef:"Identity from shared ancestry and culture.", shortEx:"Kurds across four countries."},
+{term:"Ethnocentrism", cat:"Identity",
+ def:"The belief that one’s own culture is superior to others and the tendency to judge other cultures by its standards.",
+ ex:"A tourist complains that another country’s food and customs are “wrong” simply because they differ from those at home.",
+ shortDef:"Believing your culture is superior to others.", shortEx:"Tourist calling local customs “wrong.”"},
+{term:"Expansion diffusion", cat:"Diffusion",
+ def:"The spread of a trait outward from its hearth while it stays strong at its origin; includes contagious, hierarchical, and stimulus diffusion.",
+ ex:"Basketball spread from Springfield, Massachusetts, to nearly every country while remaining hugely popular in the U.S.",
+ shortDef:"Spreads outward while staying strong at its hearth.", shortEx:"Basketball spreading from the U.S."},
+{term:"Gender", cat:"Identity",
+ def:"The socially constructed behaviors, roles, and expectations a culture associates with being male or female, as distinct from biological sex.",
+ ex:"Expectations about who should work outside the home or care for children differ between countries and have changed over time in the U.S.",
+ shortDef:"Socially constructed roles and expectations for male and female.", shortEx:"Who works vs. raises kids varies by culture."},
+{term:"Gender roles", cat:"Identity",
+ def:"The specific behaviors, jobs, and responsibilities a culture expects of men and women.",
+ ex:"During World War II, millions of American women took factory jobs, shifting traditional gender roles in the U.S.",
+ shortDef:"Jobs and behaviors a culture expects of each gender.", shortEx:"U.S. women in WWII factories."},
+{term:"Globalization", cat:"Globalization & Politics",
+ def:"The expansion of economic, political, and cultural processes to a worldwide scale, increasing interconnection among places and people.",
+ ex:"A smartphone may be designed in California, assembled in China with parts from South Korea and Japan, and sold worldwide.",
+ shortDef:"Worldwide interconnection of economies, politics, and cultures.", shortEx:"A phone built from parts worldwide."},
+{term:"Hearth", cat:"Diffusion",
+ def:"The place of origin where a cultural trait, idea, or innovation first develops before diffusing to other places.",
+ ex:"The Bronx in New York City is the hearth of hip-hop, which has since diffused around the world.",
+ shortDef:"Where a cultural trait began.", shortEx:"The Bronx for hip-hop."},
+{term:"Hierarchical diffusion", cat:"Diffusion",
+ def:"A type of expansion diffusion in which a trait spreads from people or places of power and influence (major cities, celebrities) to others.",
+ ex:"A fashion trend debuts in Paris and New York, then spreads to smaller cities and eventually to rural towns.",
+ shortDef:"Spreads from powerful people or places downward.", shortEx:"Fashion from Paris to small towns."},
+{term:"Hinduism", cat:"Religion",
+ def:"One of the world’s oldest religions, an ethnic religion with its hearth in South Asia’s Indus River Valley, centered on dharma, karma, and reincarnation.",
+ ex:"Hinduism is the majority religion of India and Nepal, and millions gather to bathe in the sacred Ganges River during the Kumbh Mela.",
+ shortDef:"Ancient South Asian ethnic religion; karma and reincarnation.", shortEx:"Bathing in the sacred Ganges."},
+{term:"Imperialism", cat:"Globalization & Politics",
+ def:"A policy of extending a country’s power and influence over other territories through political, economic, or military control, with or without settlement.",
+ ex:"During the “Scramble for Africa” (1880s–1914), European powers divided nearly the entire continent among themselves.",
+ shortDef:"Extending power and control over other territories.", shortEx:"The Scramble for Africa."},
+{term:"Indigenous communities", cat:"Identity",
+ def:"Groups descended from the original inhabitants of a region who maintain distinct cultures, languages, and strong ties to their ancestral lands.",
+ ex:"The Māori of New Zealand keep their language (te reo Māori) and traditions such as the haka alive today.",
+ shortDef:"Descendants of a region’s original inhabitants.", shortEx:"Māori of New Zealand."},
+{term:"Indo-European", cat:"Language",
+ def:"The language family with the most speakers worldwide, including English, Spanish, Hindi, Russian, and Persian, all descended from a common ancestor.",
+ ex:"The word for “mother” is similar across Indo-European languages: mother (English), Mutter (German), madre (Spanish), and mātā (Hindi).",
+ shortDef:"Language family with the most speakers.", shortEx:"English, Spanish, Hindi, Russian."},
+{term:"Islam", cat:"Religion",
+ def:"A universalizing, monotheistic religion based on the teachings of the Prophet Muhammad, with its hearth in Mecca on the Arabian Peninsula.",
+ ex:"Islam diffused across Southwest Asia, North Africa, and along Indian Ocean trade routes to Indonesia, the country with the most Muslims.",
+ shortDef:"Universalizing religion of Muhammad; hearth in Mecca.", shortEx:"Indonesia, reached via trade routes."},
+{term:"Judaism", cat:"Religion",
+ def:"One of the oldest monotheistic religions, an ethnic religion with its hearth in the Levant, centered on the Torah and a covenant with one God.",
+ ex:"Due to centuries of diaspora, Jewish communities live worldwide, with the largest populations in Israel and the United States.",
+ shortDef:"Ancient monotheistic ethnic religion from the Levant.", shortEx:"Diaspora communities in Israel and the U.S."},
+{term:"Land use patterns", cat:"Landscape",
+ def:"The ways people divide, arrange, and use land, such as for farms, housing, and sacred sites, reflecting their cultural values and history.",
+ ex:"French long-lot farms along the St. Lawrence River contrast with the square township-and-range grid of the U.S. Midwest.",
+ shortDef:"How a culture divides and uses land.", shortEx:"French long lots vs. Midwest grid."},
+{term:"Language", cat:"Language",
+ def:"A system of communication through speech, writing, or signs shared by a group, and one of the most important carriers of culture.",
+ ex:"More than 7,000 languages are spoken today; Mandarin Chinese, Spanish, and English have the most native speakers.",
+ shortDef:"Shared system of communication that carries culture.", shortEx:"Mandarin, Spanish, English."},
+{term:"Language families", cat:"Language",
+ def:"Groups of languages related through a common ancestral language that existed long before recorded history.",
+ ex:"Sino-Tibetan (Mandarin, Tibetan) and Afro-Asiatic (Arabic, Hebrew) are two major language families.",
+ shortDef:"Languages sharing a prehistoric common ancestor.", shortEx:"Sino-Tibetan; Afro-Asiatic."},
+{term:"Lingua franca", cat:"Language",
+ def:"A common language used for communication between people who speak different native languages, often for trade, business, or diplomacy.",
+ ex:"English is the global lingua franca of aviation, science, and business, while Swahili serves this role across much of East Africa.",
+ shortDef:"Common language between speakers of different languages.", shortEx:"English in aviation; Swahili in East Africa."},
+{term:"Multiculturalism", cat:"Identity",
+ def:"The coexistence of many cultural or ethnic groups within one society, each keeping its own distinct identity.",
+ ex:"In Toronto, where nearly half of residents were born outside Canada, many cultures and festivals thrive side by side.",
+ shortDef:"Many cultures coexisting, each keeping its identity.", shortEx:"Toronto’s many cultures side by side."},
+{term:"Pidgin language", cat:"Language",
+ def:"A simplified mix of two or more languages created for basic communication, often trade, that has no native speakers.",
+ ex:"Chinese Pidgin English was used between British and Chinese traders in Canton (Guangzhou) during the 1700s and 1800s.",
+ shortDef:"Simplified trade mix of languages; no native speakers.", shortEx:"Chinese Pidgin English in Canton."},
+{term:"Postmodern architecture", cat:"Landscape",
+ def:"A late-20th-century architectural style that mixes playful shapes, bold colors, and historical references, rejecting plain modernist glass boxes.",
+ ex:"The Portland Building in Oregon and 550 Madison Avenue in New York City, with its “Chippendale” top, are famous postmodern buildings.",
+ shortDef:"Playful, colorful style mixing historical references.", shortEx:"The Portland Building, Oregon."},
+{term:"Religion", cat:"Religion",
+ def:"A system of beliefs and practices related to the sacred or divine that shapes a culture’s values, way of life, and landscape.",
+ ex:"Places of worship like cathedrals, mosques, temples, and synagogues, along with cemeteries, mark religion on cultural landscapes.",
+ shortDef:"Beliefs and practices about the sacred.", shortEx:"Churches, mosques, and temples on skylines."},
+{term:"Relocation diffusion", cat:"Diffusion",
+ def:"The spread of a cultural trait when people physically migrate and bring it with them to a new place.",
+ ex:"Irish immigrants brought St. Patrick’s Day traditions to cities like Boston and New York.",
+ shortDef:"Spread by people migrating.", shortEx:"Irish bringing St. Patrick’s Day to Boston."},
+{term:"Sequent occupancy", cat:"Landscape",
+ def:"The idea that successive societies leave their cultural imprints on a place, each adding a new layer to the cultural landscape.",
+ ex:"Mexico City’s center has Aztec temple ruins, Spanish colonial cathedrals, and modern skyscrapers side by side.",
+ shortDef:"Successive cultures layering imprints on a place.", shortEx:"Aztec, Spanish, then modern Mexico City."},
+{term:"Shintoism", cat:"Religion",
+ def:"An ethnic religion native to Japan centered on honoring kami, sacred spirits found in nature, ancestors, and special places.",
+ ex:"Red torii gates mark the entrances to Shinto shrines, like the famous “floating” torii of Itsukushima Shrine.",
+ shortDef:"Japanese ethnic religion honoring nature spirits (kami).", shortEx:"Torii gates at shrines."},
+{term:"Sikhism", cat:"Religion",
+ def:"A universalizing, monotheistic religion founded by Guru Nanak in the Punjab region of South Asia around 1500 CE, emphasizing equality and service.",
+ ex:"Gurdwaras, like the Golden Temple in Amritsar, serve free community meals (langar) to anyone, regardless of background.",
+ shortDef:"Universalizing monotheistic religion from Punjab; equality and service.", shortEx:"Free langar meals at gurdwaras."},
+{term:"Stimulus diffusion", cat:"Diffusion",
+ def:"The spread of an underlying idea or principle that is adapted to fit a new culture, even though the original trait itself is not adopted.",
+ ex:"McDonald’s in India sells the McAloo Tikki potato burger instead of beef burgers, adapting to local Hindu dietary practices.",
+ shortDef:"Idea spreads but adapts to the local culture.", shortEx:"McDonald’s potato burger in India."}
+];
+TERMS.forEach(function(t,i){ t.id = i+1; });
+
+/* ---------- storage ---------- */
+var KEY_S="aphug3.settings.v1", KEY_M="aphug3.mastered.v1", KEY_B="aphug3.quizBest.v1";
+function load(k,d){ try{ var v=localStorage.getItem(k); return v===null?d:JSON.parse(v); }catch(e){ return d; } }
+function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+
+var prefersDark = false;
+try{ prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches; }catch(e){}
+var defaults = {dark:prefersDark, short:true, examples:true, flash:false, shuffle:false, hideMastered:false};
+var settings = Object.assign({}, defaults), storedSettings = load(KEY_S,{}) || {};
+Object.keys(defaults).forEach(function(k){ if(typeof storedSettings[k]==="boolean") settings[k]=storedSettings[k]; });
+save(KEY_S,settings); /* drops any obsolete keys from older versions */
+var mastered = new Set((load(KEY_M,[])||[]).filter(function(n){ return typeof n==="number" && n>=1 && n<=TERMS.length; }));
+var activeCat = "All", query = "";
+var order = TERMS.map(function(t){ return t.id; });
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function shuffleArr(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function $(id){ return document.getElementById(id); }
+var toastTimer;
+function toast(msg){ var t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.remove("show"); },1800); }
+
+/* ---------- build cards ---------- */
+var grid=$("grid"), cardEls={};
+function masteryHTML(t){
+  return '<div class="mastery"><label class="mcheck"><input type="checkbox" class="mchk" data-id="'+t.id+'"'+(mastered.has(t.id)?' checked':'')+' aria-label="Mark '+esc(t.term)+' as mastered"> Mastered</label></div>';
+}
+TERMS.forEach(function(t){
+  var c=CATS[t.cat];
+  var el=document.createElement("article");
+  el.className="card"+(mastered.has(t.id)?" is-mastered":"");
+  el.dataset.id=t.id;
+  el.innerHTML=
+    '<div class="card-inner">'+
+      '<div class="face front">'+
+        '<div class="meta"><span class="num">#'+String(t.id).padStart(2,"0")+'</span><span class="badge">'+esc(t.cat)+'</span></div>'+
+        '<div class="front-body"><div class="big-emoji" aria-hidden="true">'+c.icon+'</div><h3 class="term">'+esc(t.term)+'</h3><span class="hint"><span class="spin">↻</span> Tap to reveal the definition</span></div>'+
+        masteryHTML(t)+
+      '</div>'+
+      '<div class="face back">'+
+        '<div class="meta"><span class="num">#'+String(t.id).padStart(2,"0")+'</span><span class="badge">'+esc(t.cat)+'</span></div>'+
+        '<h3 class="term">'+esc(t.term)+'</h3>'+
+        '<p class="def"><span class="v-full">'+esc(t.def)+'</span><span class="v-short">'+esc(t.shortDef)+'</span></p>'+
+        '<p class="ex"><b>🌍 Example:</b> <span class="v-full">'+esc(t.ex)+'</span><span class="v-short">'+esc(t.shortEx)+'</span></p>'+
+        masteryHTML(t)+
+      '</div>'+
+    '</div>';
+  t.search=(t.term+" "+t.def+" "+t.ex+" "+t.shortDef+" "+t.shortEx+" "+t.cat).toLowerCase();
+  cardEls[t.id]=el;
+});
+
+/* ---------- chips ---------- */
+var chipsEl=$("chips");
+function buildChips(){
+  var cats=["All"].concat(Object.keys(CATS));
+  chipsEl.innerHTML=cats.map(function(k){
+    var n = k==="All"?TERMS.length:TERMS.filter(function(t){ return t.cat===k; }).length;
+    var icon = k==="All"?"✨":CATS[k].icon;
+    return '<button type="button" class="chip'+(k===activeCat?' active':'')+'" data-cat="'+esc(k)+'" aria-pressed="'+(k===activeCat)+'"><span class="ci" aria-hidden="true">'+icon+'</span> '+esc(k)+' <span class="n">'+n+'</span></button>';
+  }).join("");
+}
+chipsEl.addEventListener("click",function(e){
+  var b=e.target.closest(".chip"); if(!b) return;
+  activeCat=b.dataset.cat;
+  chipsEl.querySelectorAll(".chip").forEach(function(c){ var on=c.dataset.cat===activeCat; c.classList.toggle("active",on); c.setAttribute("aria-pressed",on); });
+  render(true);
+});
+
+/* ---------- render / filter ---------- */
+function visibleTerms(){
+  var q=query.trim().toLowerCase();
+  return order.map(function(id){ return TERMS[id-1]; }).filter(function(t){
+    if(activeCat!=="All" && t.cat!==activeCat) return false;
+    if(q && t.search.indexOf(q)===-1) return false;
+    if(settings.hideMastered && mastered.has(t.id)) return false;
+    return true;
+  });
+}
+function render(animate){
+  var vis=visibleTerms(), visSet={};
+  vis.forEach(function(t){ visSet[t.id]=true; });
+  var frag=document.createDocumentFragment();
+  order.forEach(function(id){ frag.appendChild(cardEls[id]); });
+  grid.appendChild(frag);
+  var i=0;
+  order.forEach(function(id){
+    var el=cardEls[id], show=!!visSet[id];
+    el.hidden=!show;
+    if(show && animate){
+      el.classList.remove("enter"); void el.offsetWidth;
+      el.style.animationDelay=Math.min(i*18,400)+"ms";
+      el.classList.add("enter"); i++;
+    }
+  });
+  $("empty").hidden = vis.length>0;
+  $("status").textContent="Showing "+vis.length+" of "+TERMS.length+" terms";
+}
+
+/* ---------- progress ---------- */
+function updateProgress(){
+  var n=mastered.size, total=TERMS.length, pct=Math.round(n/total*100);
+  $("progCount").textContent=n+" / "+total;
+  $("progPct").textContent=pct+"% mastered";
+  $("progFill").style.width=pct+"%";
+  $("progBar").setAttribute("aria-valuenow",n);
+  var msg = n===0 ? "Check “Mastered” on a card when you know it cold."
+          : n<12 ? "Nice start! Keep going 💪"
+          : n<24 ? "Making moves. Diffusion of knowledge in progress 🌊"
+          : n<36 ? "Over halfway! Centripetal forces are holding strong 🧲"
+          : n<total ? "Almost there. The finish line is your hearth 🔥"
+          : "🎉 All 48 mastered! You’re ready for Unit 3!";
+  $("progMsg").textContent=msg;
+}
+grid.addEventListener("change",function(e){
+  var cb=e.target; if(!cb.classList.contains("mchk")) return;
+  var id=+cb.dataset.id, on=cb.checked;
+  if(on) mastered.add(id); else mastered.delete(id);
+  save(KEY_M,Array.from(mastered));
+  var el=cardEls[id];
+  el.classList.toggle("is-mastered",on);
+  el.querySelectorAll(".mchk").forEach(function(x){ x.checked=on; });
+  updateProgress();
+  if(on && mastered.size===TERMS.length) toast("🎉 Every term mastered!");
+  if(settings.hideMastered && on){ setTimeout(function(){ render(false); },450); }
+});
+
+grid.addEventListener("animationend",function(e){
+  if(e.target.classList && e.target.classList.contains("card") && e.animationName==="pop"){ e.target.classList.remove("enter"); e.target.style.animationDelay=""; }
+});
+
+/* ---------- flashcards ---------- */
+function flip(el){ if(document.body.classList.contains("fc")) el.classList.toggle("flipped"); }
+grid.addEventListener("click",function(e){
+  if(e.target.closest(".mastery")) return;
+  var el=e.target.closest(".card"); if(el) flip(el);
+});
+grid.addEventListener("keydown",function(e){
+  if(e.target.classList && e.target.classList.contains("card") && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); flip(e.target); }
+});
+
+/* ---------- settings / toggles ---------- */
+function applySettings(){
+  var b=document.body;
+  b.classList.toggle("dark",!!settings.dark);
+  b.classList.toggle("no-ex",!settings.examples);
+  b.classList.toggle("short-mode",!!settings.short);
+  b.classList.toggle("fc",!!settings.flash);
+  document.querySelectorAll("[data-setting]").forEach(function(inp){ inp.checked=!!settings[inp.dataset.setting]; });
+  $("reshuffleBtn").hidden=!settings.shuffle;
+  TERMS.forEach(function(t){
+    var el=cardEls[t.id];
+    if(settings.flash){ el.tabIndex=0; el.setAttribute("aria-label",t.term+" flashcard, press Enter to flip"); }
+    else { el.removeAttribute("tabindex"); el.removeAttribute("aria-label"); el.classList.remove("flipped"); }
+  });
+}
+function setOrder(){
+  order=TERMS.map(function(t){ return t.id; });
+  if(settings.shuffle) shuffleArr(order);
+}
+document.querySelectorAll("[data-setting]").forEach(function(inp){
+  inp.addEventListener("change",function(){
+    var k=inp.dataset.setting;
+    settings[k]=inp.checked;
+    save(KEY_S,settings);
+    applySettings();
+    if(k==="shuffle"){ setOrder(); render(true); toast(inp.checked?"🔀 Cards shuffled":"🔢 Back in order"); }
+    else if(k==="hideMastered"){ render(true); }
+    else if(k==="flash"){ render(true); if(inp.checked) toast("🃏 Click a card to flip it"); }
+  });
+});
+$("reshuffleBtn").addEventListener("click",function(){ setOrder(); render(true); toast("🔀 Reshuffled"); });
+$("resetBtn").addEventListener("click",function(){
+  if(mastered.size===0){ toast("Nothing to reset yet"); return; }
+  if(!window.confirm("Clear all "+mastered.size+" mastered checkmarks?")) return;
+  mastered.clear(); save(KEY_M,[]);
+  TERMS.forEach(function(t){ var el=cardEls[t.id]; el.classList.remove("is-mastered"); el.querySelectorAll(".mchk").forEach(function(x){ x.checked=false; }); });
+  updateProgress(); render(true); toast("Progress reset");
+});
+
+/* ---------- search ---------- */
+var searchEl=$("search"), searchTimer;
+searchEl.addEventListener("input",function(){
+  $("searchBox").classList.toggle("has-text",searchEl.value.length>0);
+  clearTimeout(searchTimer);
+  searchTimer=setTimeout(function(){ query=searchEl.value; render(true); },120);
+});
+$("clearSearch").addEventListener("click",function(){ searchEl.value=""; query=""; $("searchBox").classList.remove("has-text"); render(true); searchEl.focus(); });
+
+/* ---------- quiz ---------- */
+var quiz={score:0,total:0,streak:0,best:+load(KEY_B,0)||0,current:null,last:null,answered:false,pool:[]};
+var qModal=$("quiz"), lastFocus=null;
+function quizPool(){
+  var vis=visibleTerms();
+  if(vis.length>=4) return {pool:vis, label: vis.length===TERMS.length?"Quizzing all 48 terms":"Quizzing your current view ("+vis.length+" terms)"};
+  return {pool:TERMS.slice(), label:"Quizzing all 48 terms (current view has fewer than 4)"};
+}
+function updateQuizStats(){
+  $("qScore").textContent="Score "+quiz.score+"/"+quiz.total;
+  $("qStreak").textContent="🔥 "+quiz.streak;
+  $("qBest").textContent="🏆 Best "+quiz.best;
+}
+function nextQuestion(){
+  var pool=quiz.pool, t;
+  do { t=pool[Math.floor(Math.random()*pool.length)]; } while(pool.length>1 && quiz.last && t.id===quiz.last.id);
+  quiz.current=t; quiz.last=t; quiz.answered=false;
+  var same=shuffleArr(TERMS.filter(function(x){ return x.cat===t.cat && x.id!==t.id; }));
+  var other=shuffleArr(TERMS.filter(function(x){ return x.cat!==t.cat; }));
+  var distract=same.slice(0,2).concat(other).slice(0,3);
+  var choices=shuffleArr([t].concat(distract));
+  $("qDef").textContent=settings.short?t.shortDef:t.def;
+  $("qChoices").innerHTML=choices.map(function(c,i){ return '<button type="button" class="choice" data-id="'+c.id+'"><span class="k">'+(i+1)+'</span><span class="tt">'+esc(c.term)+'</span></button>'; }).join("");
+  $("qFeedback").innerHTML="";
+  $("qNext").disabled=true;
+  var first=$("qChoices").querySelector(".choice"); if(first) first.focus();
+}
+function answer(btn){
+  if(quiz.answered||!btn) return;
+  quiz.answered=true;
+  var t=quiz.current, ok=+btn.dataset.id===t.id;
+  quiz.total++;
+  if(ok){ quiz.score++; quiz.streak++; if(quiz.streak>quiz.best){ quiz.best=quiz.streak; save(KEY_B,quiz.best); } }
+  else quiz.streak=0;
+  $("qChoices").querySelectorAll(".choice").forEach(function(b){
+    b.disabled=true;
+    if(+b.dataset.id===t.id){ b.classList.add("right"); b.querySelector(".k").textContent="✓"; }
+    else if(b===btn){ b.classList.add("wrong"); b.querySelector(".k").textContent="✗"; }
+  });
+  $("qFeedback").innerHTML=(ok?'<span class="ok"><span class="ic">✓</span>Correct!'+(quiz.streak>=3?" "+quiz.streak+" in a row 🔥":"")+'</span>':'<span class="no"><span class="ic">✗</span>Not quite. It’s <b>'+esc(t.term)+'</b>.</span>')+'<span class="fx">🌍 '+esc(settings.short?t.shortEx:t.ex)+'</span>';
+  updateQuizStats();
+  $("qNext").disabled=false; $("qNext").focus();
+}
+function openQuiz(){
+  var p=quizPool(); quiz.pool=p.pool; $("qScope").textContent=p.label;
+  lastFocus=document.activeElement;
+  qModal.hidden=false; document.body.style.overflow="hidden";
+  updateQuizStats(); nextQuestion();
+}
+function closeQuiz(){ qModal.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+$("quizBtn").addEventListener("click",openQuiz);
+$("qClose").addEventListener("click",closeQuiz);
+qModal.addEventListener("click",function(e){ if(e.target===qModal) closeQuiz(); });
+$("qChoices").addEventListener("click",function(e){ answer(e.target.closest(".choice")); });
+$("qNext").addEventListener("click",nextQuestion);
+$("qReset").addEventListener("click",function(){ quiz.score=0; quiz.total=0; quiz.streak=0; updateQuizStats(); toast("Score reset"); });
+document.addEventListener("keydown",function(e){
+  if(qModal.hidden) return;
+  if(e.key==="Escape"){ closeQuiz(); return; }
+  if(/^[1-4]$/.test(e.key) && !quiz.answered){ answer($("qChoices").querySelectorAll(".choice")[+e.key-1]); return; }
+  if(e.key==="Enter" && quiz.answered && document.activeElement!==$("qNext")){ e.preventDefault(); nextQuestion(); }
+});
+
+/* ---------- init ---------- */
+setOrder();
+buildChips();
+applySettings();
+updateProgress();
+render(true);
+})();
+</script>
+</body>
+</html>
